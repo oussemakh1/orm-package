@@ -2,7 +2,8 @@
 This a native php orm package that works with mysql it's main objectif is to facilitate the crud process in your application, contains all crud opreations like (insert, edit, update, delete, soft_delete) as well search operation
 
 # setup
-All you need is to setup your .env file with following varibales<br>
+1- composer require oussemakhlifi/orm-package <br>
+2- setup your .env file with following varibales<br>
 - <b>db_host</b> = "host" <br>
 - <b>db_username</b> = "database username" <br>
 - <b>db_password</b> = "database password" <br>
@@ -101,4 +102,17 @@ All you need is to setup your .env file with following varibales<br>
      $value = "1";
      
      $soft_delete = $db->soft_delete($table_name, $colum, $value);
+     
+     
+<b>search example</b>: <br>
+      
+     $db = new \MysqlDB\MysqlDB(); 
+     
+     $table_name = "products"; 
+     
+     $column = "category";
+     
+     $value = "phone";
+     
+     $search = $db->search($table_name, $column, $value); 
 
