@@ -1,0 +1,18 @@
+{
+    "name": "oussemakhlifi/orm-package",
+    "description": "this a native php orm package that well facilitate the crud process in your application",
+    "type": "libary",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "oussema khlif",
+            "email": "khoussemaa@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MysqlDB\\" : "src/"
+        }
+    },
+    "require": {}
+}
