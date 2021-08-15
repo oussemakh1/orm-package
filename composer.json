@@ -1,11 +1,11 @@
 {
     "name": "oussemakhlifi/orm-package",
-    "description": "this a native php orm package that well facilitate the crud process in your application",
+    "description": "This a native php orm package that works with mysql it's main objectif is to facilitate the crud process in your application, contains all crud opreations like (insert, edit, update, delete, soft_delete) as well search operation",
     "type": "libary",
     "license": "MIT",
     "authors": [
         {
-            "name": "oussema khlif",
+            "name": "oussema khlifi",
             "email": "khoussemaa@gmail.com"
         }
     ],

@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Database;
+namespace MysqlDB;
 
 use PDO;
 use PDOException;
-use App\Database\Config\dbManager;
-use App\Database\Config\dbSettings;
 
 
-class MysqlDB implements dbManager
+
+class MysqlDB 
 {
 
     private $host;
@@ -22,12 +21,15 @@ class MysqlDB implements dbManager
 
     public function __construct ()
     {
-        dbSettings::set("localhost","root","","store");
+        $HOST = getenv("db_host");
+        $USERNAME = getenv("db_username");
+        $PASSWORD = getenv("db_password");
+        $DATABASE = getenv("db_name");
 
-        $this->host = HOST;
-        $this->username = USERNAME;
-        $this->password = PASSWORD;
-        $this->db = DATABASE;
+        $this->host = $HOST;
+        $this->username = $USERNAME;
+        $this->password = $PASSWORD;
+        $this->db = $DATABASE;
 
         $this->connectDB();
     }
@@ -54,7 +56,7 @@ class MysqlDB implements dbManager
     {
         $blanks = array();
 
-        foreach($data as $key => $val) {
+        foreach($data as $key) {
             $key = $key." = ?";
             array_push($blanks, $key);
         }
@@ -84,10 +86,10 @@ class MysqlDB implements dbManager
 
         if($where == 'none') {
           // query
-          $query = "SELECT * FROM $table  WHERE isDeleted = 0 ORDER BY $by $option";
+          $query = "SELECT * FROM $table  ORDER BY $by $option";
         } else {
           // query
-          $query = "SELECT * FROM $table WHERE $where = '$val' AND isDeleted = 0 ORDER BY $by $option";
+          $query = "SELECT * FROM $table WHERE $where = '$val' AND ORDER BY $by $option";
         }
 
         $stmt = $this->link->query($query);
@@ -126,7 +128,7 @@ class MysqlDB implements dbManager
 
         $blanks = array();
 
-        foreach($data as $key => $val) {
+        foreach($data as $key) {
             $key = $key." = ?";
             array_push($blanks, $key);
         }
